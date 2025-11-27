@@ -38,7 +38,7 @@ export const analyzeImageContent = async (base64Image: string, mimeType: string)
             },
           },
           {
-            text: "Analiza esta imagen. Si es un recibo, menú o lista, extrae los nombres de los productos o ítems. Si es una foto de una escena, lista los objetos principales visibles. Devuelve SOLO una lista JSON de strings (array de strings) con los nombres en español. Sé conciso.",
+            text: "Analiza esta imagen. Si es un recibo, menú o lista, extrae los nombres de los productos o ítems. Si es una foto de una escena, lista los objetos principales visibles, si el objeto se repite, cuenta cuantos de ellos ves, por ejemplo si ves 2 hamburguesas, dime '2 ahmburguesas'. Devuelve SOLO una lista JSON de strings (array de strings) con los nombres en español. Sé conciso.",
           },
         ],
       },
