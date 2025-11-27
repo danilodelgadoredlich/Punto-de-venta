@@ -54,28 +54,28 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-zinc-100 font-sans selection:bg-green-500/30">
+    <div className="app-container">
       
       {/* Navbar / Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-900">
-        <div className="max-w-md mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="bg-green-500/10 p-2 rounded text-green-500">
+      <header className="navbar">
+        <div className="navbar-content">
+          <div className="brand">
+            <div className="brand-icon">
               <ScanLine size={20} />
             </div>
-            <span className="font-mono font-bold tracking-tight text-white">
-              ScanList<span className="text-green-500">.AI</span>
+            <span className="brand-text">
+              ScanList<span>.AI</span>
             </span>
           </div>
-          <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
+          <div className="status-dot" />
         </div>
       </header>
 
       {/* Main Content Area */}
-      <main className="pt-24 pb-12 px-4 flex flex-col items-center justify-start min-h-screen max-w-md mx-auto">
+      <main className="main-content">
         
         {state.status === 'idle' && (
-          <div className="flex-1 flex flex-col justify-center w-full animate-in zoom-in-95 duration-500">
+          <div className="w-full flex justify-center animate-zoom">
             <Scanner 
               onImageSelected={handleImageSelected} 
               isProcessing={false} 
@@ -84,7 +84,7 @@ const App: React.FC = () => {
         )}
 
         {state.status === 'analyzing' && (
-          <div className="flex-1 flex flex-col justify-center w-full">
+          <div className="w-full flex justify-center">
             <LoadingScreen />
           </div>
         )}
@@ -98,11 +98,11 @@ const App: React.FC = () => {
         )}
 
         {state.status === 'error' && (
-          <div className="p-6 bg-red-950/30 border border-red-900 rounded-lg text-center space-y-4">
-             <p className="text-red-400 font-mono text-sm">{state.errorMessage}</p>
+          <div className="error-box">
+             <p className="error-msg">{state.errorMessage}</p>
              <button 
                onClick={handleReset}
-               className="text-white bg-red-900 hover:bg-red-800 px-4 py-2 rounded font-mono text-xs uppercase"
+               className="btn-error"
              >
                Intentar de nuevo
              </button>
