@@ -1,0 +1,7 @@
+{
+  "name": "ScanList AI",
+  "description": "Una aplicación estilo retro-terminal que analiza fotos y lista los objetos encontrados usando Gemini AI.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
